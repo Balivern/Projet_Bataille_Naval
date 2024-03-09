@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+        <link rel="shortcut icon" href="logo.png">
+        <link rel="stylesheet" href="cssaccueil.css">
+
+        <title>Conception bataille navale </title>
+    </head>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top ">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span ><i class="fa fa-bars"></i></span>
+                
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="accueil.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="regles.html">Règles du jeu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="histoir.html">Histoire du jeu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manuell.html">Manuel d'utilisation</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+       
+    </header>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <img class="img-aside" src="html.png" alt="">
+            </div>
+            <div class="row">
+                <div class="">
+                    <h2>Conception du code</h2>
+                    <p>	Pour concevoir ce code nous avons utiliser le module tkinter de Python. Voici quelques explications pour comprendre notre travail. Nous avons créés plusieurs fonction et variables globales pour que ces dernière puissent communiquer entre elles.
+                        Tout d’abord une fenêtre de présentation s’ouvre. Elle est codée dans la fonction présentation, elle possède plusieurs boutons pour qui font appel à la fonction solo et la fonction deux_joueurs. Ces deux dernières fonctions change une variable globale pour lancer le bon mode de jeu. De plus le mode solo donne sur une autre fenêtre pour que le joueur choisisse le niveau de difficulté à l’aide de deux nouveaux boutons qui change également des variable globales pour initialiser le jeu.
+                        Dès que le joueur a choisis son mode et/ou niveau de jeu la fenêtre principale se lance et avec elle un grand nombre de fonctions. La première est la fonction plateau qui créé les grilles de jeu des deux joueurs ou du joueur et de l’adversaire. Elle ajoute également un zéro pour chaque casse dans deux matrices qui correspondent aux deux grilles. Ainsi les matrices sont de bonnes dimension set initialisées à zéro. 
+                        Ensuite les bateaux sont  définis à l’aide de leur coordonnées et couleur en variable globales ainsi nous avons pu les utiliser pour beaucoup d’autres fonctions. Après leur création ils sont mis dans une liste et leur position est initialisée à 0 (horizontal).
+                        La fonction clic enregistre les coordonnées du clic dans une liste. La fonction unclic positionne et aligne automatiquement le bateau déplacé par le joueur grâce à glisser et rotation, dans les grilles. Elle vérifie aussi avec test_commencer si tout les bateau sont dans la grille soit que les matrices contiennent 17 fois la valeur 2, si les bateaux son collés.
+                        La fonction commencer est accessible une fois que les deux ou le joueur est prêt. Elle se lance et permet dans le cas où il n’y a qu’un joueur de démarrer la fonction rnd_bateau qui place aléatoirement (verticalement ou horizontalement avec une case d’écart minimum)  les bateaux de l’ordinateur. Elle met également à jour les matrices, supprimes les messages et boutons inutiles et tire au sort le premier joueur.
+                        Une fois la fonction commencer terminer. On peut utiliser la fonction tirer qui permet en double cliquant de tirer sur la grille adverse en cherchant a toucher un bateau. Si le joueur tire dans l’eau c’est à dire que la cas de la matrice est à 0 alors cette dernière passe à 1 et un rond jaune apparaît dans la case, puis la fonction joueur démarre et donne la main à l’autre joueur ou à l’ordinateur. Si il tire sur un bateau qui est représenté par un 2 alors un rond rouge apparaît et la casse passe à 3. De plus la fonction test_coulé se lance et fait apparaître le bateau si toutes les cases de ce dernier sont touchées. Quand un bateau coule la fonction test_fin démarre. Elle vérifie si tout les bateaux d’un joueurs sont coulés, si oui alors elle stop tirer et lance fin. Fin est une fonction qui ouvre une nouvelle fenêtre avec le nom du gagnant et les boutons rejouer ou quitter.
+                        Tout le long du jeu les ou le joueur peut recommencer grâce à un bouton qui appelle une fonction qui réinitialise la totalité des variables et replace aléatoirement les bateaux de l’ordinateur si besoin. De plus il a la possibilité de quitter le jeu à tous moments avec différentes fonctions quitter liées à des boutons. Une fonction cache_plateau cache le plateau de l’ordinateur dans le cas où il n’y a qu’un seul joueur, sinon c’est la fonction cache_ plat_att qui est activé est qui cache une fois sur deux le plateaux du joueur qui ne joue pas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

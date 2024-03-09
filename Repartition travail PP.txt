@@ -1,0 +1,5 @@
+Moi : rotation
++ placer correctement bateau dans la grille (du bas = interdiction placement grille du haut)
+
+Lola : placement pions dans grille (noir si touché, blanc si dans l'eau) et interdiction placement pion si case déja occupé par un pion
++ si bateau est considéré comme coulé, alors message "bateau correspondant coulé" s'affiche
